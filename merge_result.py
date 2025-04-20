@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Directory containing your Excel files
-RESULT_DIR = r'result/timestamp dependency (TP)'
+RESULT_DIR = r'result/integer overflow (OF)'
 
 # Collect all Excel files in the directory
 excel_files = [
@@ -29,4 +29,4 @@ file_names = set(merged_df['file'])
 print(merged_df)
 
 # Optionally save the merged result
-merged_df.to_excel('merged_result.xlsx', index=False)
+merged_df.to_excel('slither.xlsx', index=False)

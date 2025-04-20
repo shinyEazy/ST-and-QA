@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Load both Excel files
-df1 = pd.read_excel('filter_ground_truth/filtered_TP.xlsx')
-df2 = pd.read_excel('result/timestamp dependency (TP)/slither.xlsx')
+df1 = pd.read_excel('filter_ground_truth/filtered_OF.xlsx')
+df2 = pd.read_excel('result/integer overflow (OF)/slither.xlsx')
 
 # Ensure file and contract columns are strings for both
 df1['file'] = df1['file'].astype(str)
@@ -18,6 +18,7 @@ merged_df = pd.merge(df1, df2, on=['file', 'contract'], how='left')
 merged_df['slither'] = merged_df['slither'].fillna(0).astype(int)
 # Show result
 print(merged_df)
-
+file_names = set(merged_df['file'])
+print(len(file_names))
 # Optionally save the result
-merged_df.to_excel('merged_filtered_slither.xlsx', index=False)
+merged_df.to_excel('final.xlsx', index=False)
